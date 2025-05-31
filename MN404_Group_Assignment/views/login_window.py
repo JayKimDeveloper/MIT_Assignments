@@ -46,8 +46,10 @@ class LoginWindow(tk.Toplevel):
             highlightbackground="gray",  # basic border color
             highlightcolor="green",      # focus border color
             highlightthickness=1,
-            insertbackground="green"
+            insertbackground="green",
+            show="*"  # 입력한 텍스트를 *로 표시
         )
+
         self.password_entry.pack(pady=10, ipady=10)
 
         # Login Button

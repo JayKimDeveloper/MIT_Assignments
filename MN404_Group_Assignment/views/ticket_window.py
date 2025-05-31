@@ -45,7 +45,25 @@ class TicketWindow(tk.Toplevel):
 
     # input entry function for redudancy code
     def _create_entry(self):
-        entry = tk.Entry(self, width=30, fg = "gray", bg = "white", bd=1, highlightthickness=1)
+        def validate_numeric_input(new_value):
+            if new_value == "" or new_value.isdigit():
+                return True
+            else:
+                messagebox.showerror("Invalid Input", "Please enter a numeric value.")
+                return False
+
+        vcmd = (self.register(validate_numeric_input), '%P')
+        
+        entry = tk.Entry(
+            self,
+            width=30,
+            fg="gray",
+            bg="white",
+            bd=1,
+            highlightthickness=1,
+            validate="key",
+            validatecommand=vcmd
+        )
         entry.pack(pady=5)
         return entry
 
